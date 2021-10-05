@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Widget_related_to_date_time"
