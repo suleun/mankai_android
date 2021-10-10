@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Chronometer;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -17,13 +18,13 @@ import android.widget.TimePicker;
 public class MainActivity extends AppCompatActivity {
 
     Chronometer chronometer;
-    Button startBtn, endBtn;
+//    Button startBtn, endBtn;
     RadioButton radioC, radioT;
-    CalendarView calnedarV;
+//    CalendarView calnedarV;
+    DatePicker dateP;
     TimePicker Time;
     TextView Y, M, D, H, m;
 
-    int selectYear, selectMonth, selectDay;
 
 
     @Override
@@ -33,15 +34,16 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("시간예약");
 
-        startBtn = (Button) findViewById(R.id.startBtn);
-        endBtn = (Button) findViewById(R.id.endBtn);
+//        startBtn = (Button) findViewById(R.id.startBtn);
+//        endBtn = (Button) findViewById(R.id.endBtn);
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
 
         radioC = (RadioButton) findViewById(R.id.radioC);
         radioT = (RadioButton) findViewById(R.id.radioT);
 
-        calnedarV = (CalendarView) findViewById(R.id.calnedarV);
+        dateP = (DatePicker)findViewById(R.id.dateP);
+//        calnedarV = (CalendarView) findViewById(R.id.calnedarV);
         Time = (TimePicker) findViewById(R.id.Time);
 
 
@@ -52,54 +54,58 @@ public class MainActivity extends AppCompatActivity {
         m = (TextView) findViewById(R.id.m);
 
 
-        calnedarV.setVisibility(View.INVISIBLE);
+        dateP.setVisibility(View.INVISIBLE);
+//        calnedarV.setVisibility(View.INVISIBLE);
         Time.setVisibility(View.INVISIBLE);
+        radioC.setVisibility(View.INVISIBLE);
+        radioT.setVisibility(View.INVISIBLE);
+
+        chronometer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
+                chronometer.setTextColor(Color.RED);
+                radioC.setVisibility(View.VISIBLE);
+                radioT.setVisibility(View.VISIBLE);
+            }
+        });
+
 
         radioC.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                calnedarV.setVisibility(View.VISIBLE);
+                dateP.setVisibility(View.VISIBLE);
+//                calnedarV.setVisibility(View.VISIBLE);
+
                 Time.setVisibility(View.INVISIBLE);
             }
         });
 
         radioT.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                calnedarV.setVisibility(View.INVISIBLE);
+                dateP.setVisibility(View.INVISIBLE);
+//                calnedarV.setVisibility(View.INVISIBLE);
                 Time.setVisibility(View.VISIBLE);
             }
         });
 
 
-        startBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                chronometer.start();
-                chronometer.setTextColor(Color.RED);
-            }
-        });
-
-        endBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        Y.setOnLongClickListener(new View.OnLongClickListener(){
+            public boolean onLongClick(View v){
                 chronometer.stop();
                 chronometer.setTextColor(Color.BLUE);
 
-                Y.setText(Integer.toString(selectYear));
-                M.setText(Integer.toString(selectMonth));
-                D.setText(Integer.toString(selectDay));
-
-                H.setText(Integer.toString(Time.getCurrentHour()));
-                m.setText(Integer.toString(Time.getCurrentMinute()));
+                Y.setText(Integer.toString(dateP.getYear()));
+                M.setText(Integer.toString(dateP.getMonth() + 1));
+                D.setText(Integer.toString(dateP.getDayOfMonth()));
 
 
-            }
-        });
+                radioC.setVisibility(View.INVISIBLE);
+                radioT.setVisibility(View.INVISIBLE);
+                dateP.setVisibility(View.INVISIBLE);
+                Time.setVisibility(View.INVISIBLE);
+                return false;
 
-        calnedarV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                selectYear = year;
-                selectMonth = month + 1;
-                selectDay = dayOfMonth;
             }
         });
 
