@@ -18,13 +18,10 @@ import android.widget.TimePicker;
 public class MainActivity extends AppCompatActivity {
 
     Chronometer chronometer;
-//    Button startBtn, endBtn;
     RadioButton radioC, radioT;
-//    CalendarView calnedarV;
     DatePicker dateP;
     TimePicker Time;
     TextView Y, M, D, H, m;
-
 
 
     @Override
@@ -34,16 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("시간예약");
 
-//        startBtn = (Button) findViewById(R.id.startBtn);
-//        endBtn = (Button) findViewById(R.id.endBtn);
-
         chronometer = (Chronometer) findViewById(R.id.chronometer);
 
         radioC = (RadioButton) findViewById(R.id.radioC);
         radioT = (RadioButton) findViewById(R.id.radioT);
 
-        dateP = (DatePicker)findViewById(R.id.dateP);
-//        calnedarV = (CalendarView) findViewById(R.id.calnedarV);
+        dateP = (DatePicker) findViewById(R.id.dateP);
         Time = (TimePicker) findViewById(R.id.Time);
 
 
@@ -55,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         dateP.setVisibility(View.INVISIBLE);
-//        calnedarV.setVisibility(View.INVISIBLE);
         Time.setVisibility(View.INVISIBLE);
         radioC.setVisibility(View.INVISIBLE);
         radioT.setVisibility(View.INVISIBLE);
@@ -75,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         radioC.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dateP.setVisibility(View.VISIBLE);
-//                calnedarV.setVisibility(View.VISIBLE);
-
                 Time.setVisibility(View.INVISIBLE);
             }
         });
@@ -84,14 +74,13 @@ public class MainActivity extends AppCompatActivity {
         radioT.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dateP.setVisibility(View.INVISIBLE);
-//                calnedarV.setVisibility(View.INVISIBLE);
                 Time.setVisibility(View.VISIBLE);
             }
         });
 
 
-        Y.setOnLongClickListener(new View.OnLongClickListener(){
-            public boolean onLongClick(View v){
+        Y.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
                 chronometer.stop();
                 chronometer.setTextColor(Color.BLUE);
 
