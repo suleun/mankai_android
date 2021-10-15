@@ -19,68 +19,36 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <LinearLayout
-                android:id="@+id/cat"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
 
 
                 <ImageView
+                    android:id="@+id/cat"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/cat"></ImageView>
 
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/dog"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-
                 <ImageView
+                    android:id="@+id/dog"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/dog"></ImageView>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/horse"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-
                 <ImageView
+                    android:id="@+id/horse"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/horse"></ImageView>
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/rabbit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-
                 <ImageView
+                    android:id="@+id/rabbit"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/rabbit"></ImageView>
 
-            </LinearLayout>
 
         </FrameLayout>
 
