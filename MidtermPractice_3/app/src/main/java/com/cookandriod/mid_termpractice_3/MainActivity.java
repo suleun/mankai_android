@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.InterfaceAddress;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText edt1, edt2;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn6,
             R.id.btn7,
             R.id.btn8,
-            R.id.btn9,
+            R.id.btn9
     };
 
     int i;
@@ -50,49 +52,47 @@ public class MainActivity extends AppCompatActivity {
 
         resultTV = (TextView)findViewById(R.id.resultTV);
 
+
         add.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean  onTouch (View arg0, MotionEvent arg1) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 num1 = edt1.getText().toString();
                 num2 = edt2.getText().toString();
-
                 result = Integer.parseInt(num1) + Integer.parseInt(num2);
-                resultTV.setText("계산 결과 : " + resultTV.toString());
+                resultTV.setText("계산 결과 : " + result.toString());
                 return false;
             }
         });
+
         minus.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean  onTouch (View arg0, MotionEvent arg1) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 num1 = edt1.getText().toString();
                 num2 = edt2.getText().toString();
-
                 result = Integer.parseInt(num1) - Integer.parseInt(num2);
-                resultTV.setText("계산 결과 : " + resultTV.toString());
+                resultTV.setText("계산 결과 : " + result.toString());
                 return false;
             }
         });
 
         nanugi.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean  onTouch (View arg0, MotionEvent arg1) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 num1 = edt1.getText().toString();
                 num2 = edt2.getText().toString();
-
                 result = Integer.parseInt(num1) / Integer.parseInt(num2);
-                resultTV.setText("계산 결과 : " + resultTV.toString());
+                resultTV.setText("계산 결과 : " + result.toString());
                 return false;
             }
         });
 
         goppagi.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean  onTouch (View arg0, MotionEvent arg1) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 num1 = edt1.getText().toString();
                 num2 = edt2.getText().toString();
-
                 result = Integer.parseInt(num1) * Integer.parseInt(num2);
-                resultTV.setText("계산 결과 : " + resultTV.toString());
+                resultTV.setText("계산 결과 : " + result.toString());
                 return false;
             }
         });
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                         edt1.setText(num1);
                     }else if (edt2.isFocused() == true){
                         num2 = edt2.getText().toString() + numButtons[index].getText().toString();
+                        edt2.setText(num2);
                     }else{
                         Toast.makeText(getApplicationContext(), "먼저 에디트 텍스트를 선택 하세요", Toast.LENGTH_SHORT).show();
                     }
