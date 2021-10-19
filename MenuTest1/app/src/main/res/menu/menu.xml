@@ -21,6 +21,15 @@
             >
         </item>
 
+
+        <item
+            android:id="@+id/subRotate0"
+            android:title="원래대로 돌리기"
+            >
+
+        </item>
+
+
         <item
             android:id="@+id/subSize"
             android:title="버튼 2배 확대"

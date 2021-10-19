@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn1;
     LinearLayout baseLayout;
+    int rotation = 45;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.subRotate:
-                btn1.setRotation(45);
+                btn1.setRotation(rotation);
+                rotation = rotation + 45 ;
+                return true;
+
+            case R.id.subRotate0:
+                btn1.setRotation(0);
                 return true;
 
             case R.id.subSize:
                 btn1.setScaleX(2);
+                btn1.setScaleY(2);
                 return true;
         }
         return false;
