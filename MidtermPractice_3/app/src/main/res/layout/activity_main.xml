@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edt1"
+    <TableRow>
+
+        <EditText
+            android:id="@+id/edt1"
+            android:layout_weight="1"
+            android:layout_marginBottom="20dp"
+            android:layout_span="5"
+            android:hint="숫자 1 입력" />
+    </TableRow>
+
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/edt2"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_span="5"
+            android:hint="숫자 2 입력" />
+    </TableRow>
+
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_marginBottom="20dp"
-        android:hint="숫자 1 입력" />
-
-    <EditText
-        android:id="@+id/edt2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginBottom="20dp"
-        android:hint="숫자 2 입력" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp">
 
         <Button
             android:id="@+id/btn0"
@@ -72,15 +76,13 @@
             android:text="4" />
 
 
-    </LinearLayout>
+    </TableRow>
 
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp">
 
         <Button
             android:id="@+id/btn5"
@@ -123,53 +125,58 @@
             android:text="9" />
 
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+    <TableRow>
         <Button
             android:id="@+id/add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_span="5"
             android:layout_weight="1"
             android:text="더하기" />
+    </TableRow>
+
+    <TableRow>
 
         <Button
             android:id="@+id/minus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_span="5"
             android:layout_weight="1"
             android:text="빼기" />
+    </TableRow>
+
+    <TableRow>
 
         <Button
             android:id="@+id/goppagi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_span="5"
             android:layout_weight="1"
             android:text="곱하기" />
+    </TableRow>
+
+    <TableRow>
 
         <Button
             android:id="@+id/nanugi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_span="5"
             android:layout_weight="1"
             android:text="나누기" />
+    </TableRow>
 
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/resultTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="계산결과 : "
-        android:textColor="#ff0000"
-        android:textSize="20dp" />
+    <TableRow>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/resultTV"
+            android:layout_weight="1"
+            android:layout_span="5"
+            android:text="계산결과 : "
+            android:textColor="#ff0000"
+            android:textSize="20dp" />
+    </TableRow>
+
+
+</TableLayout>
