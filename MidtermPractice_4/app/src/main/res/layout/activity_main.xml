@@ -9,82 +9,76 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="save"/>
+            android:text="save" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="save"/>
+            android:text="save" />
 
     </LinearLayout>
 
     <EditText
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Frozen"
-        />
+        android:layout_weight="1"
+        android:hint="Frozen" />
 
     <CheckBox
-        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="checkBox_1"
-        >
-    </CheckBox>
+        android:layout_weight="1"
+        android:text="checkBox_1"></CheckBox>
 
     <CheckBox
-        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="checkBox_2"
-        >
-    </CheckBox>
+        android:layout_weight="1"
+        android:checked="true"
+        android:text="checkBox_2"></CheckBox>
 
     <RadioGroup
-        android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <RadioButton
+            android:id="@+id/R_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="radiobutton_1"/>
+            android:checked="true"
+            android:text="radiobutton_1" />
 
         <RadioButton
+            android:id="@+id/R_btn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="radiobutton_2"/>
+            android:text="radiobutton_2" />
 
     </RadioGroup>
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <ToggleButton
-        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ON"
-        />
+        android:layout_weight="1"
+        android:checked="true" />
 
     <ToggleButton
-        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ON"/>
+        android:layout_weight="1"
+        android:text="ON" />
 
 
 </LinearLayout>
