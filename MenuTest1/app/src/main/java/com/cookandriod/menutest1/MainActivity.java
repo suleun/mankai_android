@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -40,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        MenuInflater mInflater = getMenuInflater();
        if (v == btn1){
-           mInflater.inflate(R.menu.menu, menu);
+           menu.add(0,1,0, "배경색 (빨강)");
+           menu.add(0,2,0, "배경색 (초록)");
+           menu.add(0,3,0, "배경색 (파랑)");
        } else if(v == btn2){
-           mInflater.inflate(R.menu.menu2, menu);
+           menu.add(0,4,0,"버튼 45도 회전");
+           menu.add(0,5,0,"버튼 2배 확대");
+           menu.add(0,6,0,"버튼 원래대로");
        }
     }
 
@@ -53,34 +54,36 @@ public class MainActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.itemRed:
+            case 1:
                 baseLayout.setBackgroundColor(Color.RED);
                 return true;
 
-            case R.id.itemGreen:
+            case 2:
                 baseLayout.setBackgroundColor(Color.GREEN);
                 return true;
 
-            case R.id.itemBlue:
+            case 3:
                 baseLayout.setBackgroundColor(Color.BLUE);
                 return true;
 
-            case R.id.subRotate:
+            case 4:
                 btn2.setRotation(rotation);
                 rotation = rotation + 45 ;
                 return true;
 
-            case R.id.subRotate0:
+            case 5:
+                btn2.setScaleX(2);
+                btn2.setScaleY(2);
+                return true;
+
+            case 6:
                 btn2.setRotation(0);
 
                 btn2.setScaleX(1);
                 btn2.setScaleY(1);
                 return true;
 
-            case R.id.subSize:
-                btn2.setScaleX(2);
-                btn2.setScaleY(2);
-                return true;
+
         }
         return false;
 
