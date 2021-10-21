@@ -48,13 +48,6 @@ public class MainActivity extends AppCompatActivity {
        }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater mInflater = getMenuInflater();
-//        mInflater.inflate(R.menu.menu, menu);
-//        return true;
-//    }
-
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
@@ -94,36 +87,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()){
-//            case R.id.itemRed:
-//                baseLayout.setBackgroundColor(Color.RED);
-//                return true;
-//
-//            case R.id.itemGreen:
-//                baseLayout.setBackgroundColor(Color.GREEN);
-//                return true;
-//
-//            case R.id.itemBlue:
-//                baseLayout.setBackgroundColor(Color.BLUE);
-//                return true;
-//
-//            case R.id.subRotate:
-//                btn1.setRotation(rotation);
-//                rotation = rotation + 45 ;
-//                return true;
-//
-//            case R.id.subRotate0:
-//                btn1.setRotation(0);
-//                return true;
-//
-//            case R.id.subSize:
-//                btn1.setScaleX(2);
-//                btn1.setScaleY(2);
-//                return true;
-//        }
-//        return false;
-//    }
 }
