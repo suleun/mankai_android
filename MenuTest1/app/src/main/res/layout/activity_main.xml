@@ -10,16 +10,19 @@
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="오른쪽 위 메뉴 버튼을 누르세요"/>
-
    <Button
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:id="@+id/btn1"
-       android:text="이건 버튼"
+       android:text="배경색 변경"
        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2"
+        android:text="버튼 번경"
+        />
 
 </LinearLayout>
