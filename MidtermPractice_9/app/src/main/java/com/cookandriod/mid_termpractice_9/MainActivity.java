@@ -1,8 +1,11 @@
 package com.cookandriod.mid_termpractice_9;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.DatePicker;
@@ -12,11 +15,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import java.sql.Time;
-
 public class MainActivity extends AppCompatActivity {
 
-    TextView startTV, yearNum, monthNum, dateNum, minNum;
+    TextView  yearNum, monthNum, dateNum, hourNum, minNum;
     Chronometer chronometer;
     RadioGroup RG;
     RadioButton date, time;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     TimePicker TP;
     LinearLayout endLayout;
 
+    int selectYear, selectMonth, selectDay;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("예약 어플리 케이션");
 
-        startTV = findViewById(R.id.startTV);
         yearNum = findViewById(R.id.yearNum);
         monthNum = findViewById(R.id.monthNum);
         dateNum= findViewById(R.id.dateNum);
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         chronometer = findViewById(R.id.chronometer);
         RG = findViewById(R.id.RG);
         date = findViewById(R.id.date);
+        hourNum = findViewById(R.id.hourNum);
         time = findViewById(R.id.time);
         DP = findViewById(R.id.DP);
         TP = findViewById(R.id.TP);
@@ -53,31 +57,52 @@ public class MainActivity extends AppCompatActivity {
         chronometer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
                 RG.setVisibility(View.VISIBLE);
             }
         });
 
 
-        if (date.isChecked() == true){
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            DP.setVisibility(View.VISIBLE);
-            TP.setVisibility(View.INVISIBLE);
+                DP.setVisibility(View.VISIBLE);
+                TP.setVisibility(View.INVISIBLE);
+            }
+        });
 
-        }else if(time.isChecked() == true){
-            TP.setVisibility(View.VISIBLE);
-            DP.setVisibility(View.INVISIBLE);
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TP.setVisibility(View.VISIBLE);
+                DP.setVisibility(View.INVISIBLE);
 
-        }
+            }
+        });
+
+        DP.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int date) {
+                selectYear = year;
+                selectMonth = month;
+                selectDay = date;
+            }
+        });
+
+
 
       endLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chronometer.stop();
-                yearNum.setText(date.getText().toString());
-                monthNum.setText(date.getText().toString());
-                dateNum.setText(date.getText().toString());
-                minNum.setText(date.getText().toString());
+                yearNum.setText(Integer.toString(selectYear));
+                monthNum.setText(Integer.toString( selectMonth+ 1));
+                dateNum.setText(Integer.toString(selectDay));
+
+                hourNum.setText(Integer.toString(TP.getCurrentHour()));
+                minNum.setText(Integer.toString(TP.getCurrentMinute()));
 
 
                 RG.setVisibility(View.INVISIBLE);
