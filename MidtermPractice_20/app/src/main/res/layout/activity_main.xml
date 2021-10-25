@@ -7,19 +7,20 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:id="@+id/baseLayout"
+    android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="오른쪽 위 메뉴 버튼을 누르세요"
-        />
-
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="아임 버튼"/>
+        android:text="배경색 변경"/>
+
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="버튼 변경"/>
 
 </LinearLayout>
