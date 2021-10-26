@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     TimePicker tPicker;
     TextView tvYear, tvMonth, tvDay, tvHour, tvMinute;
     int selectYear, selectMonth, selectDay;
-    int hourV, mint;
 
 
     @Override
@@ -90,8 +89,9 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chrono.getFormat();
+                chrono.setBase(SystemClock.elapsedRealtime());
                 chrono.start();
+                chrono.setTextColor(Color.BLUE);
             }
         });
 
@@ -100,16 +100,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int date) {
                 selectYear = year;
-                selectMonth = month;
+                selectMonth = month + 1;
                 selectDay = date;
-            }
-        });
-
-        tPicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-            @Override
-            public void onTimeChanged(TimePicker timePicker, int hour, int min) {
-                hourV = hour;
-                mint = min;
             }
         });
 
@@ -119,14 +111,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 chrono.stop();
-                chrono.setTextColor(Color.BLUE);
 
-                tvYear.setText(selectYear);
-                tvMonth.setText(selectMonth);
-                tvDay.setText(selectDay);
-                tvHour.setText(hourV);
-                tvMinute.setText(mint);
+                tvYear.setText(Integer.toString(selectYear));
+                tvMonth.setText(Integer.toString(selectMonth));
+                tvDay.setText(Integer.toString(selectDay));
 
+                tvHour.setText(Integer.toString(tPicker.getCurrentHour()));
+                tvMinute.setText(Integer.toString(tPicker.getCurrentMinute()));
             }
         });
 
