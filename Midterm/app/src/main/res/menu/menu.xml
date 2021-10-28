@@ -6,7 +6,8 @@
         android:id="@+id/text">
 
     </item>
-<group android:id="@+id/group">
+<group android:id="@+id/group"
+    android:checkableBehavior="single">>
 
 
     <item
