@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/dialog"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/edname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kim So Eun"/>
+
+    <EditText
+        android:id="@+id/edemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="soeun@gmail.com"/>
+
+</LinearLayout>
