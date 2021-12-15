@@ -11,17 +11,13 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Calendar;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    DatePicker dp;
-    EditText editDiary;
-    Button btnwrite;
-    String fileName;
+
+    ChipNavigationBar menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,69 +26,39 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("간단한 일기장");
 
-        dp = findViewById(R.id.datePicker1);
-        editDiary = findViewById(R.id.editDiary);
-        btnwrite = findViewById(R.id.btnWrite);
 
-        Calendar cal = Calendar.getInstance();
-        int cYear = cal.get(Calendar.YEAR);
-        int cMonth = cal.get(Calendar.MONTH);
-        int cDate = cal.get(Calendar.DAY_OF_MONTH);
+        menu = findViewById(R.id.menu);
 
-        fileName = Integer.toString(cYear) + "_"
-                + Integer.toString(cMonth + 1) + "_"
-                + Integer.toString(cDate) + ".txt";
-
-        String read = readDiary(fileName);
-        editDiary.setText(read);
-
-        dp.init(cYear, cMonth, cDate, new DatePicker.OnDateChangedListener() {
+        menu.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
-            public void onDateChanged(DatePicker datePicker, int year, int month, int day) {
-                fileName = Integer.toString(year) + "_"
-                        + Integer.toString(month + 1) + "_"
-                        + Integer.toString(day) + ".txt";
-                String str = readDiary(fileName);
-                editDiary.setText(str);
-                btnwrite.setEnabled(true);
-            }
-        });
+            public void onItemSelected(int id) {
+                if (id == R.id.home) {
 
-        btnwrite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    FileOutputStream outputS = openFileOutput(fileName, Context.MODE_PRIVATE);
-                    String str = editDiary.getText().toString();
-                    outputS.write(str.getBytes());
-                    outputS.close();
-                    Toast.makeText(getApplicationContext(), fileName + "이 저장 됨", Toast.LENGTH_SHORT).show();
-                }catch(IOException e){
+                    System.out.println("홈 클릭됨");
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new emotion()).commit();
 
+                } else if (id == R.id.write) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new write()).commit();
+
+                    System.out.println(" 쓰기 클릭됨");
+
+
+                } else if (id == R.id.memorial) {
+
+
+                    System.out.println(" 기억 클릭됨");
                 }
-
             }
         });
-
-    }
-
-    String readDiary(String fName) {
-        String diaryStr = null;
-        FileInputStream inputS;
-        try {
-            inputS = openFileInput(fName);
-            byte[] txt = new byte[500];
-            inputS.read(txt);
-            inputS.close();
-
-            diaryStr = (new String(txt)).trim();
-            btnwrite.setText("수정하기");
-
-        } catch (IOException e) {
-            editDiary.setHint("일기 없음");
-            btnwrite.setHint("새로 저장");
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new emotion()).commit();
         }
 
-        return diaryStr;
+
     }
+
+
 }
