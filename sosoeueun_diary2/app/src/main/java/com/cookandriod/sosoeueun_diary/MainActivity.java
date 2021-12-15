@@ -2,14 +2,7 @@ package com.cookandriod.sosoeueun_diary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -24,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("간단한 일기장");
+        setTitle("일기장");
 
 
         menu = findViewById(R.id.menu);
@@ -47,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
                 } else if (id == R.id.memorial) {
 
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new memorial()).commit();
 
                     System.out.println(" 기억 클릭됨");
                 }
