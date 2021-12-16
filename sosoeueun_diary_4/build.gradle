@@ -3,16 +3,9 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.0"
-        implementation 'lib.kingja.switchbutton:switchbutton:1.1.8'
-        // 라디오 버튼
-        implementation 'com.github.channguyen:rsv:1.0.1'
-        // 시크바 연속x, 구간 선택
-        implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
-        // 그래프
+
     }
 }
 

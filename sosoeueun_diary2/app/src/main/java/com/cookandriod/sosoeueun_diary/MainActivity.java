@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("일기장");
+        setTitle("Diary");
 
 
         menu = findViewById(R.id.menu);
