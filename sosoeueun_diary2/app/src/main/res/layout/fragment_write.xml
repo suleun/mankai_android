@@ -18,6 +18,21 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
 
+
+        <Button
+            android:id="@+id/btnEmotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="감정 등록" />
+
+        <TextView
+            android:id="@+id/dialogTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="오늘의 감정은 : " />
+
+
         <EditText
             android:id="@+id/editDiary"
             android:layout_width="match_parent"
@@ -30,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:enabled="false"
+
             android:text="저장" />
 
     </LinearLayout>
