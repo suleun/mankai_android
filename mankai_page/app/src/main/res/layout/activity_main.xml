@@ -22,9 +22,6 @@
                 android:orientation="vertical"
                 android:id="@+id/page">
 
-
-
-
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
