@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Mypage_memo</string>
+
+
+    <string-array name="title">
+
+        <item>memo 1</item>
+        <item>memo 2</item>
+        <item>memo 3</item>
+        <item>memo 4</item>
+        <item>memo 5</item>
+        <item>memo 6</item>
+
+    </string-array>
+
+
+</resources>
