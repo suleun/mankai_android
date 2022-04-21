@@ -3,15 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_primary_variant"
     tools:context=".Mypage_memoFragment">
 
+<!--    memoList-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--        memoList Item-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="삭제"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+<!--    memo-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TAB4"
+        android:text="리사이클 뷰로 메모 저장 되 있는거 보여주기"
         android:textSize="30dp"
         android:layout_gravity="center"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="메모 추가 버튼을 어디 만들거냐"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        />
+
 
 </FrameLayout>

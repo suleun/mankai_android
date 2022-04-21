@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
     tools:context=".Mypage_groupFragment">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TAB2"
+        android:text="RecyclerView \n grid layout manager 쓰면 될 듯"
         android:textSize="30dp"
         android:layout_gravity="center"
         />
